@@ -4,8 +4,10 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Table;
 
 @Entity
+@Table(name = "tb_books")
 public class Book {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,9 +17,9 @@ public class Book {
 
   private String author;
 
-  private String price;
+  private Float price;
 
-  public Book(int id, String name, String author, String price) {
+  public Book(int id, String name, String author, Float price) {
     this.id = id;
     this.name = name;
     this.author = author;
@@ -51,13 +53,12 @@ public class Book {
     this.author = author;
   }
 
-  public String getPrice() {
+  public Float getPrice() {
     return price;
   }
 
-  public void setPrice(String price) {
+  public void setPrice(Float price) {
     this.price = price;
   }
 
-  
 }
