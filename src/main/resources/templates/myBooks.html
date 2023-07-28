@@ -82,7 +82,16 @@
             <td th:text="${b.author}"></td>
             <td th:text="'R$ ' + ${b.price}"></td>
             <td>
-              <a><i class="fa-solid fa-trash"></i></a>
+              <a
+                th:href="@{/delete/{id}(id=${b.id})}"
+                style="text-decoration: inherit"
+                ><i
+                  class="fa-solid fa-trash"
+                  onmouseover="this.style.color='red'"
+                  onmouseout="this.style.color='#0d6efd'"
+                  style="cursor: pointer; transition: 0.3s"
+                ></i
+              ></a>
             </td>
           </tr>
         </tbody>
