@@ -11,4 +11,14 @@ public class BookController {
     return "home";
   }
 
+  @GetMapping("/book_register")
+  public String bookRegister() {
+    return "bookRegister";
+  }
+
+  @GetMapping("/avaliable_books")
+  public String getAllBooks() {
+    return "bookList";
+  }
+
 }
