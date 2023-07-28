@@ -13,7 +13,15 @@
       crossorigin="anonymous"
     />
 
-    <title>Book List</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <title>My Books</title>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-dark">
@@ -74,11 +82,7 @@
             <td th:text="${b.author}"></td>
             <td th:text="'R$ ' + ${b.price}"></td>
             <td>
-              <a
-                th:href="@{/mylist/{id}(id=${b.id})}"
-                class="btn btn-secondary btn-sm"
-                >Add To My Books</a
-              >
+              <a><i class="fa-solid fa-trash"></i></a>
             </td>
           </tr>
         </tbody>
