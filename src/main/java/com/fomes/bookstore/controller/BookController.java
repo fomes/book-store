@@ -68,4 +68,10 @@ public class BookController {
     model.addAttribute("book", book);
     return "bookEdit";
   }
+
+  @RequestMapping("/delete_book/{id}")
+  public String deleteFromMyList(@PathVariable("id") int id) {
+    bookService.deleteById(id);
+    return "redirect:/avaliable_books";
+  }
 }
