@@ -61,4 +61,11 @@ public class BookController {
     myBookListService.saveMybook(myBookList);
     return "redirect:/my_books";
   }
+
+  @RequestMapping("/edit_book/{id}")
+  public String editBook(@PathVariable("id") int id, Model model) {
+    Book book = bookService.getBookById(id);
+    model.addAttribute("book", book);
+    return "bookEdit";
+  }
 }
