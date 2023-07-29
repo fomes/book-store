@@ -7,18 +7,30 @@ import org.springframework.stereotype.Service;
 
 import com.fomes.bookstore.entity.Book;
 import com.fomes.bookstore.repository.BookRepository;
+import com.fomes.bookstore.repository.MyBookRepository;
 
 @Service
 public class BookService {
   @Autowired
   private BookRepository bookRepository;
 
+  @Autowired
+  private MyBookRepository myBookRepository;
+
   public void saveBook(Book book) {
+    bookRepository.save(book);
+  }
+
+  public void saveFavorite(Book book) {
     bookRepository.save(book);
   }
 
   public List<Book> getallBooks() {
     return bookRepository.findAll();
+  }
+
+  public List<Book> getMyBooks() {
+    return myBookRepository.findAllByFavoriteTrue();
   }
 
   public Book getBookById(int id) {

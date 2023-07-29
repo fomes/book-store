@@ -19,11 +19,14 @@ public class Book {
 
   private Float price;
 
-  public Book(int id, String name, String author, Float price) {
+  private Boolean favorite;
+
+  public Book(int id, String name, String author, Float price, Boolean favorite) {
     this.id = id;
     this.name = name;
     this.author = author;
     this.price = price;
+    this.favorite = favorite;
   }
 
   public Book() {
@@ -59,6 +62,14 @@ public class Book {
 
   public void setPrice(Float price) {
     this.price = price;
+  }
+
+  public Boolean getFavorite() {
+    return favorite;
+  }
+
+  public void setFavorite(Boolean favorite) {
+    this.favorite = favorite;
   }
 
 }

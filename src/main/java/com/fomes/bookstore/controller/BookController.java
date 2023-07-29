@@ -9,18 +9,13 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.fomes.bookstore.entity.Book;
-import com.fomes.bookstore.entity.MyBookList;
 import com.fomes.bookstore.service.BookService;
-import com.fomes.bookstore.service.MyBookListService;
 
 @Controller
 public class BookController {
 
   @Autowired
   private BookService bookService;
-
-  @Autowired
-  private MyBookListService myBookListService;
 
   @GetMapping("/")
   public String home() {
@@ -48,17 +43,19 @@ public class BookController {
   }
 
   @GetMapping("/my_books")
-  public String getMyBooks(Model model) {
-    List<MyBookList> list = myBookListService.getAllMyBooks();
-    model.addAttribute("book", list);
-    return "myBooks";
+  public ModelAndView getMyBooks() {
+    List<Book> list = bookService.getMyBooks();
+    ModelAndView model = new ModelAndView();
+    model.setViewName("bookList");
+    model.addObject("book", list);
+    return model;
   }
 
-  @RequestMapping("/mylist/{id}")
-  public String getMyList(@PathVariable("id") int id) {
+  @RequestMapping("/save_favorite/{id}")
+  public String addFavorite(@PathVariable("id") int id) {
     Book book = bookService.getBookById(id);
-    MyBookList myBookList = new MyBookList(book.getId(), book.getName(), book.getAuthor(), book.getPrice());
-    myBookListService.saveMybook(myBookList);
+    book.setFavorite(true);
+    bookService.saveFavorite(book);
     return "redirect:/my_books";
   }
 

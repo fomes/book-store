@@ -46,19 +46,15 @@
               >
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white" href="avaliable_books"
-                >Avaliable Books</a
-              >
+              <a class="nav-link text-white" href="avaliable_books">Books</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white" href="my_books">My Books</a>
+              <a class="nav-link text-white" href="my_books">Favorites</a>
             </li>
           </ul>
 
           <div>
-            <a class="nav-link text-white" href="book_register"
-              >New Book Register</a
-            >
+            <a class="nav-link text-white" href="book_register">New Book</a>
           </div>
         </div>
       </div>
@@ -83,7 +79,7 @@
             <td th:text="'R$ ' + ${b.price}"></td>
             <td>
               <a
-                th:href="@{/mylist/{id}(id=${b.id})}"
+                th:href="@{/save_favorite/{id}(id=${b.id})}"
                 class="btn btn-secondary btn-sm"
                 >Add To My Books</a
               >
