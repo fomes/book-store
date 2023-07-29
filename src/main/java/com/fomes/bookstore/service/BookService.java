@@ -21,7 +21,7 @@ public class BookService {
     bookRepository.save(book);
   }
 
-  public void saveFavorite(Book book) {
+  public void editFavorite(Book book) {
     bookRepository.save(book);
   }
 

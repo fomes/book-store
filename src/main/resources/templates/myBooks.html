@@ -21,7 +21,7 @@
       referrerpolicy="no-referrer"
     />
 
-    <title>My Books</title>
+    <title>Favorites</title>
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-dark">
@@ -83,7 +83,7 @@
             <td th:text="'R$ ' + ${b.price}"></td>
             <td>
               <a
-                th:href="@{/delete/{id}(id=${b.id})}"
+                th:href="@{/remove_favorite/{id}(id=${b.id})}"
                 style="text-decoration: inherit"
                 ><i
                   class="fa-solid fa-trash"

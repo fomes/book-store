@@ -46,7 +46,7 @@ public class BookController {
   public ModelAndView getMyBooks() {
     List<Book> list = bookService.getMyBooks();
     ModelAndView model = new ModelAndView();
-    model.setViewName("bookList");
+    model.setViewName("myBooks");
     model.addObject("book", list);
     return model;
   }
@@ -55,7 +55,15 @@ public class BookController {
   public String addFavorite(@PathVariable("id") int id) {
     Book book = bookService.getBookById(id);
     book.setFavorite(true);
-    bookService.saveFavorite(book);
+    bookService.editFavorite(book);
+    return "redirect:/my_books";
+  }
+
+  @RequestMapping("/remove_favorite/{id}")
+  public String removeFavorite(@PathVariable("id") int id) {
+    Book book = bookService.getBookById(id);
+    book.setFavorite(false);
+    bookService.editFavorite(book);
     return "redirect:/my_books";
   }
 
