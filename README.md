@@ -26,6 +26,13 @@ Inicie o servidor
   docker compose up
 ```
 
+Acesse a aplicação no browser
+
+```bash
+  http://localhost:8080
+```
+
+
 ## Stack utilizada
 
 **Front-end:** Bootstrap
