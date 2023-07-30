@@ -1,0 +1,33 @@
+version: "3.8"
+
+services:
+  # Serviço para o banco de dados PostgreSQL
+  db:
+    image: postgres:latest
+    container_name: db_books
+    environment:
+      POSTGRES_DB: db_books
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./sql:/docker-entrypoint-initdb.d
+
+  # Serviço para a aplicação Spring
+  app:
+    build:
+      context: . # Caminho para o Dockerfile (diretório atual)
+    container_name: book-store-app
+    depends_on:
+      - db
+    ports:
+      - "8080:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://db:5432/db_books
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: postgres
+
+volumes:
+  postgres_data: # Volume para persistir os dados do banco de dados

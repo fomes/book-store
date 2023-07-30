@@ -1,4 +1,4 @@
-CREATE TABLE tb_books (
+CREATE TABLE IF NOT EXISTS tb_books (
     id SERIAL PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
   	author VARCHAR(50),
