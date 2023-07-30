@@ -28,9 +28,7 @@ Inicie o servidor
 
 Acesse a aplicação no browser
 
-```bash
-  http://localhost:8080
-```
+[http://localhost:8080](http://localhost:8080)
 
 
 ## Stack utilizada
