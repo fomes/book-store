@@ -4,8 +4,6 @@
 Aplicação web (frontend e backend) com um CRUD simples e dockerizada.
 
 
-
-
 ## Rodando localmente
 
 Clone o projeto
